@@ -1,0 +1,54 @@
+/* Style for display face image modal */
+
+#faceImage:hover {
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+#nameText {
+	color: black;
+	margin-top: 10px;
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 60%;
+    max-width: 60%;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-Img, #caption { 
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+	max-width: 250px;
+	max-height: 250px;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+

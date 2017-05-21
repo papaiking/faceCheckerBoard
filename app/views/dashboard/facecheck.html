@@ -1,0 +1,66 @@
+<div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Checking in/out events</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+	<!-- The Modal -->
+	<div id="faceModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- The Close Button -->
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Device information</h4>
+				</div>
+				<div class="modal-body">
+					<!-- Modal Content (The Image) -->
+					<img class="modal-Img" id="identityImg">
+					<img class="modal-Img" id="detectedImg">
+					<!-- Modal Caption (Image Text) -->
+					<div id="nameText"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>			
+			</div>
+		</div>
+	</div>
+    
+    <!-- /.panel -->
+    <div class="row" >
+        <table class="table table-bordered" id="FaceCheckList">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Evidence</th>
+              <th>Name</th>
+              <th>Confidence</th>
+              <th>Insider (/Stranger)</th>
+              <th>Time</th>
+              <th>Camera Id</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="face in events | orderBy: 'created' : true" >
+              <th scope="row">{{$index + 1}}</th>
+              <td>
+                <img id="faceImage" ng-if="imagesURL" ng-src="{{imagesURL}}/thumbnail/{{face.format}}" alt="{{face.timestamp}}"
+					ng-click="CompareImage(face.faceid, face.format)"
+					data-toggle="modal" data-target="#faceModal"
+				/>
+              </td>
+
+              <td>{{face.name}}</td>
+              <td>{{face.similarity | number:4}}</td>
+              <td>{{face.valid}}</td>
+              <td>{{face.created | date : 'medium'}}</td>
+              <td>{{face.device_id}}</td>
+            </tr>
+          </tbody>
+        </table> 
+    </div>
+    <!-- /.row -->
+</div>
