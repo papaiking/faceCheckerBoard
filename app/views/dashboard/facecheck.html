@@ -47,7 +47,7 @@
             <tr ng-repeat="face in events | orderBy: 'created' : true" >
               <th scope="row">{{$index + 1}}</th>
               <td>
-                <img id="faceImage" ng-if="imagesURL" ng-src="{{imagesURL}}/thumbnail/{{face.format}}" alt="{{face.timestamp}}"
+                <img id="faceImage" ng-src="{{face.event_picture}}" alt="{{face.created}}"
 					ng-click="CompareImage(face.faceid, face.format)"
 					data-toggle="modal" data-target="#faceModal"
 				/>
