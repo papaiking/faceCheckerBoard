@@ -50,8 +50,8 @@ Set value for: `server_url` - This is service URL of FaceChecker Application ser
 
 Device management
 
-<img alt="Device management" src="/img/device_management.png" style="border: 0px;">
+<img alt="Device management" src="./img/device_management.png" style="border: 0px;">
 
 Event management
 
-<img alt="Event management" src="/img/event_management.png" style="border: 0px;">
+<img alt="Event management" src="./img/event_management.png" style="border: 0px;">
