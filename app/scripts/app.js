@@ -19,7 +19,7 @@ angular
       events:true,
     });
 
-    $urlRouterProvider.otherwise('/dashboard/home');
+    $urlRouterProvider.otherwise('/dashboard/facecheck');
 
     $stateProvider
       .state('dashboard', {
@@ -77,7 +77,7 @@ angular
             }
         }
     })
-    
+/*    
       .state('dashboard.home',{
         url:'/home',
         controller: 'MainCtrl',
@@ -95,7 +95,7 @@ angular
           }
         }
       })
-
+*/
       .state('dashboard.facecheck',{
         url:'/facecheck',
         controller: 'facecheck',
@@ -107,6 +107,23 @@ angular
               files:[
                 'js/date.format.js',
                 'scripts/controllers/facecheck.js'
+              ]
+            })
+          }
+        }
+      })
+
+      .state('dashboard.device',{
+        url:'/device',
+        controller: 'deviceCtrl',
+        templateUrl:'views/dashboard/device.html',
+        resolve: {
+          loadMyFiles:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+              name:'faceCheckerApp',
+              files:[
+                'js/date.format.js',
+                'scripts/controllers/device.js'
               ]
             })
           }
@@ -149,18 +166,13 @@ angular
   
 	.factory('AppConfig', function(){
 		var event_rows_limit = 20;
-		var socket = io.connect('http://118.70.151.36:9100', {reconnect: true});
+		var device_rows_limit = 20;		
+		var server_url = 'http://118.70.151.36:9100';
+		var socket = io.connect(server_url, {reconnect: true});
 
-		// Whenever the server emits 'login', log the login message
-		// socket.on('login', function (data) {
-			// connected = true;
-			// // Display the welcome message
-			// //var message = "Welcome to Socket.IO – ";
-			// console.log("Connected to server: " + data);
-		// });
-		
 		return { 
-			event_service_url: "http://118.70.151.36:9100/event/list/" + event_rows_limit,
+			event_service_url: server_url + "/event/list/" + event_rows_limit,
+			device_list_url: server_url + "/device/list/" + device_rows_limit,
 			socket: socket
 		};
 	});

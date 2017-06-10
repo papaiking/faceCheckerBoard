@@ -1,0 +1,39 @@
+<div>
+    <div class="row">
+		<h3 class="page-header">Device management</h3>
+    </div>
+
+    <!-- /.panel -->
+    <div class="row" >
+		<button type="button" class="btn btn-secondary btn-md" style='margin-bottom: 10px;'>Add Device</button>		
+        <table class="table table-bordered" id="FaceCheckList">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Id</th>
+              <th>Address</th>
+              <th>Status</th>
+              <th>About</th>
+              <th>Created</th>
+              <th>Operations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="device in devices | orderBy: 'created' : true" >
+              <th scope="row">{{$index + 1}}</th>
+              <td>{{device.id}}</td>
+              <td>{{device.address}}</td>
+              <td>{{device.status}}</td>
+              <td>{{device.about}}</td>
+              <td>{{device.created | date : 'medium'}}</td>
+              <td>
+				<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+				<i class="fa fa-pencil-square-o"></i>
+				<i class="fa fa-times" aria-hidden="true"></i>
+			  </td>
+            </tr>
+          </tbody>
+        </table> 
+    </div>
+    <!-- /.row -->
+</div>
