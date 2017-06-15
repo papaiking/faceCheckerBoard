@@ -25,12 +25,22 @@
 				$scope.events.splice(0, 0, data);				
 			});
 	 
-/* 			var controllerElement = document.getElementById('FaceCheckList');
-			var $scope = angular.element(controllerElement).scope();
-			$scope.$apply(function() {
-				$scope.facechecks.rows.push({"format":face.format, "faceid":face.faceid, "condifence":face.condifence, "isinsider":face.isInsider, "timestamp":face.timeStamp, "endpointid":face.endpointId});
-				//console.log($scope.facechecks.rows);
-			});
- */		});
+		});
+		
+		$scope.openEvidence = function(id) {
+			$scope.evidence = id;
+		}
+		
+		$scope.openProfile = function(id) {
+			var user_id = $scope.events[id].user_id;
+			//console.log('User Id is: ' + user_id);
+
+			$http.get(AppConfig.user_profile_url + user_id).
+				success(function(data) {
+					console.log (data);
+					$scope.profile = data;
+				});
+
+		}
 		
     }]);

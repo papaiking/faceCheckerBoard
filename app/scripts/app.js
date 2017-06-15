@@ -173,10 +173,11 @@ angular
 		return { 
 			event_service_url: server_url + "/event/list/" + event_rows_limit,
 			device_list_url: server_url + "/device/list/" + device_rows_limit,
-      device_add_url: server_url + "/device/add",
-      device_info_url: server_url + "/device/info/",
-      device_delete_url: server_url + "/device/delete/",
-      device_update_url: server_url + "/device/update",
+			user_profile_url: server_url + "/linkedface/profile/",
+			device_add_url: server_url + "/device/add",
+			device_info_url: server_url + "/device/info/",
+			device_delete_url: server_url + "/device/delete/",
+			device_update_url: server_url + "/device/update",
 			socket: socket
 		};
 	});

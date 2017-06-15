@@ -4,20 +4,52 @@
     </div>
 
 	<!-- The Modal -->
-	<div id="faceModal" class="modal fade" role="dialog">
+	<div id="evidenceModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<!-- The Close Button -->
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Device information</h4>
+					<h4 class="modal-title">Event evidence</h4>
 				</div>
 				<div class="modal-body">
 					<!-- Modal Content (The Image) -->
-					<img class="modal-Img" id="identityImg">
-					<img class="modal-Img" id="detectedImg">
+					<img class="modal-Img" id="identityImg" ng-src="{{events[evidence].event_picture}}">
 					<!-- Modal Caption (Image Text) -->
 					<div id="nameText"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>			
+			</div>
+		</div>
+	</div>
+
+	<!-- The Modal -->
+	<div id="profileModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- The Close Button -->
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">{{profile.name}}</h4>
+				</div>
+				<div class="modal-body">
+					<!-- Modal Content (The Image) -->
+					<img class="modal-Img" id="identityImg" ng-src="{{profile.picture}}">
+					<!-- Modal Caption (Image Text) -->
+					<div id="profile">
+						<h4>About: </h4>
+						<hr>
+						<textarea > {{profile.about}}</textarea>
+						<h4>Social networks: </h4>
+						<hr>
+						<div>
+							<a ng-repeat="network in profile.social_networks" href="{{network.link}}" target="_blank">
+								<img ng-src="{{network.picture}}">
+							</a>
+						</div>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -44,13 +76,13 @@
             <tr ng-repeat="face in events | orderBy: 'created' : true" >
               <th scope="row">{{$index + 1}}</th>
               <td>
-                <img id="faceImage" ng-src="{{face.event_picture}}" alt="{{face.created}}"
-					ng-click="CompareImage(face.faceid, face.format)"
-					data-toggle="modal" data-target="#faceModal"
+                <img id="evidenceImage" ng-src="{{face.event_picture}}" alt="{{face.created}}"
+					ng-click="openEvidence($index)"
+					data-toggle="modal" data-target="#evidenceModal"
 				/>
               </td>
 
-              <td>{{face.name}}</td>
+              <td class="nameCell" ng-click="openProfile($index)" data-toggle="modal" data-target="#profileModal" >{{face.name}}</td>
               <td>{{face.similarity | number:4}}</td>
               <td>{{face.valid}}</td>
               <td>{{face.created | date : 'medium'}}</td>
