@@ -9,7 +9,12 @@ With this module, we can:
 -   Monitoring events happened in the system, in real-time
 -   Manage device in the system: create, delete, view and update information, access token
 
+General architecture
+
+<img alt="Add or update device" src="../img/FaceChecker_arch.png" style="border: 0px;">
+
 ### Platform
+* Linkedface++ as face recognition platform.
 * Use template SB Admin v2.0 rewritten in AngularJS
 * Angular JS, multi layer routing
 * SocketIO
@@ -48,10 +53,20 @@ Set value for: `server_url` - This is service URL of FaceChecker Application ser
 
 # Screen short
 
-Device management
+<img alt="Device management" src="../img/device_management.png" style="border: 0px;">
 
-<img alt="Device management" src="./img/device_management.png" style="border: 0px;">
+View device information
+
+<img alt="View device information" src="../img/device-information.png" style="border: 0px;">
+
+Add or update device
+
+<img alt="Add or update device" src="../img/device-update_add.png" style="border: 0px;">
 
 Event management
 
-<img alt="Event management" src="./img/event_management.png" style="border: 0px;">
+<img alt="Event management" src="../img/event_management.png" style="border: 0px;">
+
+View user information
+
+<img alt="View user information" src="../img/user-information.png" style="border: 0px;">
