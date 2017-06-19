@@ -105,3 +105,11 @@ html {
 	max-height: 42px;
 	max-width: 42px;
 }
+
+.table>tbody>tr>td {
+	border-top: 0px;
+}
+
+textarea.form-control {
+	height: 100px;
+}

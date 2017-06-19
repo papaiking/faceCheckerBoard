@@ -21,7 +21,7 @@
             var device_list_url = AppConfig.device_list_url + "/0";
             $http.get(device_list_url).
             success(function(data) {
-                console.log (data);
+                //console.log (data);
                 $scope.devices = data;
             });
         };
@@ -70,13 +70,13 @@
         
 		//process device
         $scope.processDevice = function(){
-            console.log('device', $scope.data);
-            console.log('process', $scope.process);
+            //console.log('device', $scope.data);
+            //console.log('process', $scope.process);
             if($scope.data.address == '' || $scope.data.about == ''){
                 alert("Address or About not blank!");
                 return false;
             }
-            console.log('param', $scope.data);
+            //console.log('param', $scope.data);
             //add
             if($scope.process === 'add'){
                 $http({
@@ -87,7 +87,7 @@
                     transformRequest: angular.identity
                 }).
                 success(function(data, status, headers, config) {
-                    console.log(data);
+                    //console.log(data);
                     $scope.closeDevice();
                     $scope.loadDevices();
                 }).
@@ -105,7 +105,7 @@
                     transformRequest: angular.identity
                 }).
                 success(function(data, status, headers, config) {
-                    console.log(data);
+                    //console.log(data);
                     $scope.closeDevice();
                     $scope.loadDevices();
                 }).
@@ -136,7 +136,7 @@
         $scope.delete = function(){
             $http.get(AppConfig.device_delete_url + $scope.data.id).
             success(function(data) {
-                console.log (data);
+                //console.log (data);
                 $scope.closeConfirm();
                 $scope.loadDevices();
             });
