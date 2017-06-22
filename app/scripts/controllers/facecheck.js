@@ -37,7 +37,7 @@
 
 			$http.get(AppConfig.user_profile_url + user_id).
 				success(function(data) {
-					console.log (data);
+					//console.log (data);
 					$scope.profile = data;
 				});
 
